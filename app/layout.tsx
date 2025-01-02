@@ -1,27 +1,21 @@
 import type { Metadata } from "next";
-import {
-  Inter,
-  Space_Grotesk,
-} from "next/font/google";
+import { Space_Mono } from "next/font/google";
 import React from "react";
 
 import "./globals.css";
 
-const interSans = Inter({
-  variable: "--font-Inter-sans",
+const spaceMono = Space_Mono({
+  variable: "--font-space-mono",
   subsets: ["latin"],
-});
-const spaceGroteskLogo = Space_Grotesk({
-  variable: "--font-logo",
-  subsets: ["latin"],
+  weight: "700",
 });
 
 export const metadata: Metadata = {
-  title: "Dev Overflow",
+  title: "Splitter",
   description:
-    "A community-driven platform for asking and answering programming questions. Get help, share knowledge, and collaborate with developers from around the world. Explore topics in web development, mobile app development, algorithms, data structures, and more.",
+    "Easily calculate and split tips with this simple app. Perfect for dining out with friends or group gatherings. Quick, accurate, and user-friendly!",
   icons: {
-    icon: "/images/site-logo.svg",
+    icon: "/images/logo.svg",
   },
 };
 
@@ -33,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${interSans.className} ${spaceGroteskLogo.variable} antialiased`}
+        className={`${spaceMono.className} bg-primary-500 antialiased`}
       >
         {children}
       </body>

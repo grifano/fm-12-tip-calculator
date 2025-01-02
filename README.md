@@ -29,11 +29,13 @@ Happy exploring!
 
 ### Requirements
 
-Build out this dashboard and get it looking as close to the design as possible.
+Build out this tip calculator app and get it looking as close to the design as possible.
 
 Your users should be able to:
 
-- [👉 ADD REQUIREMENTS!]
+- Calculate the correct tip and total cost of the bill per person
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
 
 ### Tech Stack:
 
@@ -47,6 +49,7 @@ Your users should be able to:
 
 ### Links
 
+- Solution URL: [FrontendMentor Solution Hub]([👉 ADD LINK!])
 - Live Site URL: [GitHub Pages](https://grifano.github.io/[👉 ADD LINK!])
 
 ## Author
