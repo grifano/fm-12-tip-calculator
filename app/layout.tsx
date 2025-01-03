@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Mono } from "next/font/google";
 import React from "react";
+import { ToastContainer } from "react-toastify";
 
 import "./globals.css";
 
@@ -26,10 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${spaceMono.className} bg-primary-500 antialiased`}
-      >
+      <body className={`${spaceMono.className} bg-primary-500 antialiased`}>
         {children}
+        <ToastContainer />
       </body>
     </html>
   );

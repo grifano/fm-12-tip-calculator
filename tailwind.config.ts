@@ -13,8 +13,10 @@ const config: Config = {
         primary: {
           "100": "#26C2AE",
           "200": "#5E7A7D",
+          "300": "#7F9D9F",
           "400": "#9FE8DF",
           "500": "#C5E4E7",
+          "600": "#547878",
           "700": "#9EBBBD",
           "900": "#F3F9FA",
         },
@@ -28,8 +30,7 @@ const config: Config = {
         },
       },
       boxShadow: {
-        "light-100":
-          "0px 32px 43px 0 rgba(79,166,175,0.2)",
+        "light-100": "0px 32px 43px 0 rgba(79,166,175,0.2)",
       },
       screens: {
         xs: "420px",
