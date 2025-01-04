@@ -7,7 +7,7 @@ import TipSelect from "./TipSelect";
 
 const Calculator = () => {
   const [bill, setBill] = useState("");
-  const [person, setPerson] = useState("");
+  const [person, setPerson] = useState("1");
   const [tip, setTip] = useState("");
   const [total, setTotal] = useState("");
 
@@ -18,12 +18,21 @@ const Calculator = () => {
     setPerson(newValue);
   };
   const handleTipChange = (newValue: string) => {
+    // if (bill.length > 0) {
+    //   const tipNumeric = parseInt(newValue);
+    //   const billNumeric = parseInt(bill);
+
+    //   const tipAmount = (billNumeric * tipNumeric) / 100;
+
+    //   setTip(tipAmount.toFixed(2));
+    // }
+
     const tipNumeric = parseInt(newValue);
     const billNumeric = parseInt(bill);
 
     const tipAmount = (billNumeric * tipNumeric) / 100;
 
-    setTip(String(tipAmount.toFixed(2)));
+    setTip(tipAmount.toFixed(2));
   };
   const getTotal = (bill: number, persons: number, tip: number) => {
     const newTotal = (bill + tip) / persons;
@@ -32,7 +41,7 @@ const Calculator = () => {
   };
   const resetAll = () => {
     setBill("");
-    setPerson("");
+    setPerson("1");
     setTip("");
     setTotal("");
   };
@@ -56,11 +65,12 @@ const Calculator = () => {
           value={bill}
           onChange={handleBillChange}
         />
-        <TipSelect onChange={handleTipChange} value={tip} />
+        <TipSelect onChange={handleTipChange} />
         <TextField
           label="Number of People"
           placeholder="0"
           value={person}
+          errorMsg={Number(person) != 0 ? "" : "Can’t be zero"}
           iconUrl="/icons/user-icon.svg"
           onChange={handlePersonChange}
         />

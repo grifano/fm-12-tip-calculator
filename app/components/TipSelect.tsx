@@ -1,14 +1,16 @@
-import React, { ChangeEvent, FC } from "react";
+"use client";
+
+import React, { ChangeEvent, FC, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 import TipButton from "./TipButton";
+import TipCustomInput from "./TipCustomInput";
 
 type TipAmount = {
-  value: string;
   onChange: (value: string) => void;
 };
 
-const TipSelect: FC<TipAmount> = ({ value, onChange }) => {
+const TipSelect: FC<TipAmount> = ({ onChange }) => {
   const tips = [
     { title: "5", amount: "5" },
     { title: "10", amount: "10" },
@@ -16,23 +18,50 @@ const TipSelect: FC<TipAmount> = ({ value, onChange }) => {
     { title: "25", amount: "25" },
     { title: "50", amount: "50" },
   ];
+  const [radioValue, setRadioValue] = useState("");
+  const [customValue, setCustomValue] = useState("");
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleRadioChange = (e: ChangeEvent<HTMLInputElement>) => {
     const regex = /^\d+$/;
     const inputValue = e.target.value;
 
     if (regex.test(inputValue)) {
       if (parseInt(inputValue, 10) <= 100) {
-        onChange(inputValue);
+        setRadioValue(inputValue);
       } else {
-        onChange("");
+        setRadioValue("");
         toast("100 maximum");
       }
     } else {
-      onChange("");
+      setRadioValue("");
       toast("Should be a number");
     }
   };
+  const handleCustomChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const regex = /^\d+$/;
+    const inputValue = e.target.value;
+
+    if (regex.test(inputValue)) {
+      if (parseInt(inputValue, 10) <= 100) {
+        setCustomValue(inputValue);
+      } else {
+        setCustomValue("");
+        toast("100 maximum");
+      }
+    } else {
+      setCustomValue("");
+      toast("Should be a number");
+    }
+  };
+
+  useEffect(() => {
+    if (radioValue) {
+      onChange(radioValue);
+    }
+    if (customValue) {
+      onChange(customValue);
+    }
+  }, [radioValue, customValue, onChange]);
 
   return (
     <label
@@ -48,19 +77,11 @@ const TipSelect: FC<TipAmount> = ({ value, onChange }) => {
               value={tip.amount}
               label={tip.title}
               tabindex={index} // TODO: Need to think about correct implementation
-              onChange={handleChange}
+              onChange={handleRadioChange}
             />
           );
         })}
-        <input
-          id="custom"
-          name="custoom"
-          type="text"
-          placeholder="Custom"
-          value={value}
-          onChange={handleChange}
-          className="placeholder:text-primary-600 min-h-12 rounded-md bg-primary-900 pr-2 text-right text-2xl leading-none text-dark-900 placeholder:-mr-2 placeholder:text-center focus:outline-2 focus:outline-primary-100"
-        />
+        <TipCustomInput value={customValue} onChange={handleCustomChange} />
       </div>
     </label>
   );

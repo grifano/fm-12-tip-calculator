@@ -10,8 +10,6 @@ type ResultScreen = {
 
 const ResultScreen: FC<ResultScreen> = ({ tipAmount, total, onClick }) => {
   const handleClick = () => {
-    console.log("This is ResultScreen click");
-
     onClick();
   };
   return (

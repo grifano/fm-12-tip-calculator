@@ -1,10 +1,11 @@
-"use client";
+// "use client";
 
 import Image from "next/image";
 import { FC, ChangeEvent } from "react";
 
 type TextField = {
   label: string;
+  errorMsg?: string;
   placeholder: string | "0";
   iconUrl?: string;
   value: string;
@@ -13,6 +14,7 @@ type TextField = {
 
 const TextField: FC<TextField> = ({
   label,
+  errorMsg,
   placeholder,
   iconUrl,
   value,
@@ -23,10 +25,13 @@ const TextField: FC<TextField> = ({
   };
   return (
     <label
-      htmlFor="bill"
+      htmlFor={label}
       className="flex flex-col gap-2.5 font-bold leading-normal text-primary-200"
     >
-      {label}
+      <div className="flex items-center justify-between">
+        <span>{label}</span>
+        <span className="text-red-400">{errorMsg}</span>
+      </div>
       <div className="flex-center rounded-md bg-primary-900 px-5 outline-none outline outline-2 -outline-offset-2 transition-[outline] has-[input:focus-within]:outline-primary-100">
         <div className="shrink-0 select-none text-2xl text-primary-700">
           {iconUrl ? (
@@ -36,8 +41,8 @@ const TextField: FC<TextField> = ({
           )}
         </div>
         <input
-          id="bill"
-          name="bill"
+          id={label}
+          name={label}
           type="text"
           placeholder={placeholder}
           value={value}
