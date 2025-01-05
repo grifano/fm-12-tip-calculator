@@ -21,7 +21,7 @@ const config = [
   ...compat.extends(
     "next/core-web-vitals",
     "next/typescript",
-    // "plugin:tailwindcss/recommended",
+    "plugin:tailwindcss/recommended",
     "prettier"
   ),
   {
@@ -51,9 +51,7 @@ const config = [
               position: "after",
             },
           ],
-          pathGroupsExcludedImportTypes: [
-            "builtin",
-          ],
+          pathGroupsExcludedImportTypes: ["builtin"],
           alphabetize: {
             order: "asc",
             caseInsensitive: true,
