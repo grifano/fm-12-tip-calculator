@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 
 import Image from "next/image";
 import { FC, ChangeEvent } from "react";
@@ -32,7 +32,7 @@ const TextField: FC<TextField> = ({
         <span>{label}</span>
         <span className="text-red-400">{errorMsg}</span>
       </div>
-      <div className="flex-center rounded-md bg-primary-900 px-5 outline-none outline outline-2 -outline-offset-2 transition-[outline] has-[input:focus-within]:outline-primary-100">
+      <div className="flex-center rounded-md bg-primary-900 px-5 outline-none outline-2 -outline-offset-2 transition-[outline] has-[input:focus-within]:outline-primary-100">
         <div className="shrink-0 select-none text-2xl text-primary-700">
           {iconUrl ? (
             <Image src={iconUrl} alt="icon" width={16} height={16} />

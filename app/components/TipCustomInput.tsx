@@ -14,7 +14,7 @@ const TipCustomInput: FC<TipCustomInput> = ({ value, onChange }) => {
       placeholder="Custom"
       value={value}
       onChange={onChange}
-      className="placeholder:text-primary-600 min-h-12 rounded-md bg-primary-900 pr-2 text-right text-2xl leading-none text-dark-900 placeholder:-mr-2 placeholder:text-center focus:outline-2 focus:outline-primary-100"
+      className="min-h-12 rounded-md bg-primary-900 pr-2 text-right text-2xl leading-none text-dark-900 placeholder:-mr-2 placeholder:text-center placeholder:text-primary-600 focus:outline-2 focus:outline-primary-100"
     />
   );
 };
