@@ -2,6 +2,7 @@
 
 <div style="display: flex; gap: 10px; align-items: center;">
   <img src="./docs/github_assests/js-logo.svg" alt="javascript" height="50"/>
+  <img src="./docs/github_assests/typescript.svg" alt="typescript" height="50"/>
   <img src="./docs/github_assests/html-logo.svg" alt="html" height="50"/>
   <img src="./docs/github_assests/css-logo.svg" alt="CSS" height="50"/>
   <img src="./docs/github_assests/next.svg" alt="CSS" height="50"/>
@@ -23,7 +24,7 @@ from tech to the best cycling routes.
 
 Happy exploring!
 
-# Project: [👉 ADD TITLE!]
+# Project: WebApp - Tip Calculator
 
 <img src="./docs/github_assests//preview.webp" alt="project preview" height="auto" style="border-radius: 20px"/>
 
@@ -49,8 +50,9 @@ Your users should be able to:
 
 ### Links
 
-- Solution URL: [FrontendMentor Solution Hub]([👉 ADD LINK!])
-- Live Site URL: [GitHub Pages](https://grifano.github.io/[👉 ADD LINK!])
+<!-- - Solution URL: [FrontendMentor Solution Hub]([👉 ADD LINK!]) -->
+
+- Live Site URL: [Live Preview](https://lightcyan-falcon-612762.hostingersite.com/)
 
 ## Author
 
