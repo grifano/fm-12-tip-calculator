@@ -1,10 +1,12 @@
 <img src="./docs/github_assests//grifano-logo.svg" alt="grifano logo" height="100"/>
 
-<div style="display: flex; gap: 10px; align-items: center;">
+<div style="display: flex; gap: 4px; align-items: center;">
   <img src="./docs/github_assests/js-logo.svg" alt="javascript" height="50"/>
   <img src="./docs/github_assests/typescript.svg" alt="typescript" height="50"/>
   <img src="./docs/github_assests/html-logo.svg" alt="html" height="50"/>
   <img src="./docs/github_assests/css-logo.svg" alt="CSS" height="50"/>
+  <img src="./docs/github_assests/react-logo.svg" alt="react-logo" height="50"/>
+  <img src="./docs/github_assests/redux.svg" alt="redux-logo" height="50"/>
   <img src="./docs/github_assests/next.svg" alt="CSS" height="50"/>
   <img src="./docs/github_assests/tailwind.svg" alt="CSS" height="50"/>
   <img src="./docs/github_assests/vite-logo.svg" alt="vite" height="50"/>
@@ -43,6 +45,8 @@ Your users should be able to:
 - HTML5;
 - CSS3;
 - JavaScript
+- React
+- Redux
 - NextJS 15
 - TailwindCSS
 - Vite
@@ -50,9 +54,8 @@ Your users should be able to:
 
 ### Links
 
-<!-- - Solution URL: [FrontendMentor Solution Hub]([👉 ADD LINK!]) -->
-
-- Live Site URL: [Live Preview](https://lightcyan-falcon-612762.hostingersite.com/)
+- Solution URL: [FrontendMentor Solution Hub](https://www.frontendmentor.io/solutions/tip-calculator-nextjs-tailwindcss-typescript-redux-t-kC1oYlLC)
+- Live Site URL: [Live Preview](https://fm-12-tip-calculator.vercel.app/)
 
 ## Author
 
