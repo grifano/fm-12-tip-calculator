@@ -23,9 +23,6 @@ const TipSelect = () => {
   const bill = useSelector((state: RootState) => state.inputData.bill);
   const tip = useSelector((state: RootState) => state.inputData.tip);
 
-  // const [radioValue, setRadioValue] = useState("");
-  // const [customValue, setCustomValue] = useState("");
-
   const handleRadioChange = (e: ChangeEvent<HTMLInputElement>) => {
     const regex = /^\d+$/;
     const inputValue = e.target.value;

@@ -5,7 +5,7 @@ import { InputDataState } from "@/app/types/types";
 const initialState: InputDataState = {
   bill: "",
   tip: "",
-  persons: "1",
+  persons: "",
 };
 
 const inputDataSlice = createSlice({

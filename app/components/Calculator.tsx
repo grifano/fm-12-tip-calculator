@@ -3,6 +3,7 @@
 import { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import Container from "./Container";
 import ResultScreen from "./ResultScreen";
 import TextField from "./TextField";
 import TipSelect from "./TipSelect";
@@ -21,7 +22,10 @@ const Calculator = () => {
     dispatch(addBill(newValue));
   };
   const handlePersonChange = (newValue: string) => {
-    dispatch(addPersons(newValue));
+    // Allow intermediate states like an empty string
+    if (/^\d*$/.test(newValue)) {
+      dispatch(addPersons(newValue));
+    }
   };
 
   const total = useMemo(() => {
@@ -40,28 +44,30 @@ const Calculator = () => {
   }, [total, dispatch]);
 
   return (
-    <section className="grid w-full max-w-[57.5rem] grid-cols-1 gap-8 rounded-t-3xl bg-white p-8 shadow-light-100 xs:grid-cols-2 xs:gap-12 xs:rounded-3xl">
-      <div className="flex flex-col gap-8 xs:gap-10">
-        <TextField
-          label="Bill"
-          placeholder="0"
-          value={bill}
-          onChange={handleBillChange}
-        />
-        <TipSelect />
-        <TextField
-          label="Number of People"
-          placeholder="0"
-          value={person}
-          errorMsg={Number(person) != 0 ? "" : "Can't be zero"}
-          iconUrl="/icons/user-icon.svg"
-          onChange={handlePersonChange}
-        />
-      </div>
-      <div className="flex flex-col rounded-lg bg-dark-900">
-        <ResultScreen />
-      </div>
-    </section>
+    <Container>
+      <section className="grid w-full grid-cols-1 gap-8 rounded-t-3xl bg-white p-8 shadow-light-100 xs:rounded-3xl md:grid-cols-2 md:gap-12">
+        <div className="flex flex-col gap-8 xs:gap-10">
+          <TextField
+            label="Bill"
+            placeholder="0"
+            value={bill}
+            onChange={handleBillChange}
+          />
+          <TipSelect />
+          <TextField
+            label="Number of People"
+            placeholder="0"
+            value={person}
+            errorMsg={"Can't be zero"}
+            iconUrl="/icons/user-icon.svg"
+            onChange={handlePersonChange}
+          />
+        </div>
+        <div className="flex flex-col rounded-lg bg-dark-900">
+          <ResultScreen />
+        </div>
+      </section>
+    </Container>
   );
 };
 

@@ -7,8 +7,8 @@ type ResultData = {
 
 const ResultData: FC<ResultData> = ({ data, title }) => {
   return (
-    <div className="flex items-center justify-between">
-      <p className="font-bold text-white">
+    <div className="flex flex-wrap items-center justify-between">
+      <p className="text-nowrap font-bold text-white">
         {title}
         <span className="block text-sm text-primary-300">/ person</span>
       </p>

@@ -6,7 +6,12 @@
   /* .background-light850_dark100 {
     @apply bg-light-850 dark:bg-dark-100;
   } */
-
+  .toastMsg {
+    @apply rounded-lg bg-primary-900 text-red-400 outline outline-2 outline-red-400;
+  }
+  .max-container {
+    @apply max-w-[65.5rem] px-4;
+  }
   .flex-center {
     @apply flex items-center justify-center;
   }

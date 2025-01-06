@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${spaceMono.className} bg-primary-500 antialiased`}>
         {children}
-        <ToastContainer />
+        <ToastContainer className="p-2" />
       </body>
     </html>
   );

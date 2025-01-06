@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { FC, ChangeEvent } from "react";
+import { FC, ChangeEvent, useState } from "react";
+import { toast } from "react-toastify";
 
 type TextField = {
   label: string;
@@ -20,8 +21,25 @@ const TextField: FC<TextField> = ({
   value,
   onChange,
 }) => {
+  const [isValid, setIsValid] = useState(true);
+  const [isTouched, setIsTouched] = useState(false);
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    onChange(e.target.value);
+    const newValue = e.target.value;
+
+    setIsTouched(true);
+
+    // Allow only positive numbers using a regex
+    if (/^[1-9]\d*$/.test(newValue)) {
+      onChange(newValue);
+      setIsValid(true); // Optional: set valid state
+    } else {
+      toast.error("Can't be a 0", {
+        className: "toastMsg",
+      });
+      setIsValid(false); // Optional: handle invalid state
+      onChange("");
+    }
   };
   return (
     <label
@@ -30,9 +48,13 @@ const TextField: FC<TextField> = ({
     >
       <div className="flex items-center justify-between">
         <span>{label}</span>
-        <span className="text-red-400">{errorMsg}</span>
+        {!isValid && isTouched && (
+          <span className="text-red-400">{errorMsg}</span>
+        )}
       </div>
-      <div className="flex-center rounded-md bg-primary-900 px-5 outline-none outline-2 -outline-offset-2 transition-[outline] has-[input:focus-within]:outline-primary-100">
+      <div
+        className={`flex-center rounded-md bg-primary-900 px-5 outline-none outline-2 -outline-offset-2 transition-[outline] has-[input:focus-within]:outline-primary-100 ${!isValid && isTouched && "outline-red-300 has-[input:focus-within]:outline-red-300"}`}
+      >
         <div className="shrink-0 select-none text-2xl text-primary-700">
           {iconUrl ? (
             <Image src={iconUrl} alt="icon" width={16} height={16} />
