@@ -1,28 +1,29 @@
-import { FC } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import ResultData from "./ResultData";
+import { resetInputData } from "../redux/slices/inputDataSlice";
+import { resetResultData } from "../redux/slices/resultDataSlice";
+import { RootState } from "../redux/store";
 
-type ResultScreen = {
-  tipAmount: string;
-  total: string;
-  onClick: () => void;
-};
+const ResultScreen = () => {
+  const dispatch = useDispatch();
+  const result = useSelector((state: RootState) => state.result);
 
-const ResultScreen: FC<ResultScreen> = ({ tipAmount, total, onClick }) => {
   const handleClick = () => {
-    onClick();
+    dispatch(resetInputData());
+    dispatch(resetResultData());
   };
   return (
-    <div className="p-6 xs:p-10">
+    <div className="flex h-full flex-col gap-8 p-6 xs:p-10">
       <h2 className="sr-only">Result screen</h2>
-      <div className="flex flex-col gap-5">
-        <ResultData title="Tip Amount" data={tipAmount} />
-        <ResultData title="Total" data={total} />
+      <div className="flex flex-col gap-5 xs:gap-8">
+        <ResultData title="Tip Amount" data={result.tipAmount} />
+        <ResultData title="Total" data={result.totalAmount} />
       </div>
       <button
         type="button"
         onClick={handleClick}
-        className="text-co mt-8 min-h-12 w-full rounded-md bg-primary-100 text-center text-xl font-bold uppercase leading-none text-dark-900 outline-none transition-colors lg:focus-within:bg-primary-400 lg:hover:bg-primary-400"
+        className="mt-auto min-h-12 w-full rounded-md bg-primary-100 text-center text-xl font-bold uppercase leading-none text-dark-900 outline-none transition-colors lg:focus-within:bg-primary-400 lg:hover:bg-primary-400"
       >
         Reset
       </button>
